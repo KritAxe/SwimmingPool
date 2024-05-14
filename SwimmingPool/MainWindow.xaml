@@ -1,0 +1,43 @@
+﻿<Window x:Class="SwimmingPool.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SwimmingPool"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Background="#FFA7A7A7">
+        <TextBox x:Name="TBLogin"
+            HorizontalAlignment="Center" 
+                 Margin="0,173,0,0" TextWrapping="Wrap" 
+                 VerticalAlignment="Top" Width="120" 
+                 Background="{x:Null}" BorderBrush="Black" 
+                 SelectionBrush="Black" OpacityMask="Black" 
+                 CaretBrush="Black" Foreground="Black"/>
+        <PasswordBox x:Name="PBPassword"
+            HorizontalAlignment="Center" 
+                 Margin="0,237,0,0"  
+                 VerticalAlignment="Top" Width="120" 
+                 Background="{x:Null}" BorderBrush="Black" 
+                 SelectionBrush="{x:Null}" OpacityMask="Black" Foreground="Black"/>
+        <TextBlock HorizontalAlignment="Left" Margin="340,152,0,0" 
+                   TextWrapping="Wrap" VerticalAlignment="Top">
+            <Run Language="ru-ru" Text="Логин"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="340,216,0,0" 
+                   TextWrapping="Wrap" VerticalAlignment="Top">
+            <Run Language="ru-ru" Text="Пароль"/></TextBlock>
+        <Button x:Name="LoadBTN"
+            Content="ВХОД" HorizontalAlignment="Center" Margin="0,291,0,0" 
+                VerticalAlignment="Top" Click="Load_Click" Width="90" 
+                Background="#FF646464" BorderBrush="{x:Null}" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="36,33,0,0" 
+                   TextWrapping="Wrap" VerticalAlignment="Top" 
+                   Height="29" Width="230" FontSize="22" FontFamily="Arial Black" 
+                   Foreground="#FFE0FC13"><Run Language="ru-ru" Text="ЗОЛОТАЯ РЫБКА"/>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Center" 
+            Margin="0,118,0,0" TextWrapping="Wrap" 
+            VerticalAlignment="Top" Height="29" Width="156" Text="Текущее обслуживание" TextAlignment="Center" FontSize="14"/>
+
+    </Grid>
+</Window>

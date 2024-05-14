@@ -1,0 +1,39 @@
+﻿<Window x:Class="SwimmingPool.Administrator.ChangeShedule"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SwimmingPool.Administrator"
+        mc:Ignorable="d"
+        
+        Title="ChangeShedule" Height="450" Width="800">
+    <Grid Background="#FFA7A7A7">
+        <DataGrid x:Name="SheduleGrid" Margin="0,63,0,0" AutoGenerateColumns="False"
+                  SelectionMode="Extended" SelectionChanged="SheduleGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Тренер" Width="*" Binding="{Binding NameTrainer}"/>
+                <DataGridTextColumn Header="Клиент" Width="*" Binding="{Binding NameClient}"/>
+                <DataGridTextColumn Header="Бассейн" Width="*" Binding="{Binding NamePool}"/>
+                <DataGridTextColumn Header="Начало" Width="*" Binding="{Binding Start}"/>
+                <DataGridTextColumn Header="Конец" Width="*" Binding="{Binding End}"/>
+                <DataGridTextColumn Header="День недели" Width="*" Binding="{Binding Day}"/>
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <TextBox HorizontalAlignment="Left" Margin="10,40,0,0" TextWrapping="Wrap" 
+                 VerticalAlignment="Top" Width="120" x:Name="TBTrainer"/>
+        <TextBox HorizontalAlignment="Left" Margin="135,40,0,0" TextWrapping="Wrap" 
+            VerticalAlignment="Top" Width="120" x:Name="TBClient"/>
+        <TextBox HorizontalAlignment="Left" Margin="400,40,0,0" TextWrapping="Wrap" 
+            VerticalAlignment="Top" Width="120" x:Name="TBStart"/>
+        <TextBox HorizontalAlignment="Left" Margin="532,40,0,0" TextWrapping="Wrap" 
+            VerticalAlignment="Top" Width="120" x:Name="TBEnd"/>
+        <Button Content="Сохранить" HorizontalAlignment="Left" 
+                Margin="730,10,0,0" VerticalAlignment="Top" Width="60" Background="#FF646464"
+                x:Name="SaveChange" Click="SaveChange_Click"/>
+        <Button Content="Перейти к клиентам" HorizontalAlignment="Left" 
+            Margin="10,10,0,0" VerticalAlignment="Top" Width="120" Background="#FF646464"
+            x:Name="BTNgoClient" Click="BTNgoClient_Click"/>
+    </Grid>
+</Window>

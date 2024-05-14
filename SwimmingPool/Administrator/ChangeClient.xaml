@@ -1,0 +1,39 @@
+﻿<Window x:Class="SwimmingPool.Administrator.ChangeClient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SwimmingPool.Administrator"
+        mc:Ignorable="d"
+        Loaded="Client_Loaded"
+        Title="ChangeClient" Height="450" Width="800">
+    <Grid Background="#FFA7A7A7">
+        <DataGrid Margin="0,59,0,0" x:Name="ClientGrid" AutoGenerateColumns="False"
+                  SelectionMode="Extended" SelectionChanged="ClientGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="FName" Width="*" Binding="{Binding FName}"/>
+                <DataGridTextColumn Header="LName" Width="*" Binding="{Binding LName}"/>
+                <DataGridTextColumn Header="Patronymic" Width="*" Binding="{Binding Patronymic}"/>
+                <DataGridTextColumn Header="Phone" Width="*" Binding="{Binding Phone}"/>
+                <DataGridTextColumn Header="Email" Width="*" Binding="{Binding Email}"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox HorizontalAlignment="Left" Margin="0,36,0,0" TextWrapping="Wrap" 
+                 VerticalAlignment="Top" Width="120" x:Name="TBChangeFName"/>
+        <Button Content="Сохранить" HorizontalAlignment="Left" Margin="727,10,0,0" 
+                VerticalAlignment="Top" Width="63" x:Name="SaveClient" Click="SaveClient_Click" Background="#FF646464"/>
+        <TextBox HorizontalAlignment="Left" Margin="160,36,0,0" TextWrapping="Wrap" 
+            VerticalAlignment="Top" Width="120" x:Name="TBChangeLName"/>
+        <TextBox HorizontalAlignment="Left" Margin="320,36,0,0" TextWrapping="Wrap" 
+            VerticalAlignment="Top" Width="120" x:Name="TBChangePatr"/>
+        <TextBox HorizontalAlignment="Left" Margin="479,36,0,0" TextWrapping="Wrap" 
+            VerticalAlignment="Top" Width="120" x:Name="TBChangePhone"/>
+        <TextBox HorizontalAlignment="Left" Margin="638,36,0,0" TextWrapping="Wrap" 
+            VerticalAlignment="Top" Width="120" x:Name="TBChangeEmail"/>
+        <!--<Button Content="Перейти к расписанию" HorizontalAlignment="Left" Background="#FF646464"
+                Margin="10,10,0,0" VerticalAlignment="Top" Width="138" x:Name="BTNgoShedule"
+                Click="BTNgoShedule_Click"/>-->
+
+    </Grid>
+</Window>
