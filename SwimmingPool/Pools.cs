@@ -18,6 +18,7 @@ namespace SwimmingPool
         public Pools()
         {
             this.Shedule = new HashSet<Shedule>();
+            this.Subscription = new HashSet<Subscription>();
         }
     
         public int PoolsID { get; set; }
@@ -26,5 +27,7 @@ namespace SwimmingPool
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Shedule> Shedule { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Subscription> Subscription { get; set; }
     }
 }

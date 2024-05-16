@@ -89,6 +89,9 @@
     <Compile Include="Gender.cs">
       <DependentUpon>BDswimmingPool.tt</DependentUpon>
     </Compile>
+    <Compile Include="Manager\AddShedule.xaml.cs">
+      <DependentUpon>AddShedule.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Manager\CreateClient.xaml.cs">
       <DependentUpon>CreateClient.xaml</DependentUpon>
     </Compile>
@@ -155,6 +158,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Manager\AddShedule.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Manager\CreateClient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -1,4 +1,5 @@
-﻿using SwimmingPool.Classes;
+﻿using SwimmingPool.Administrator;
+using SwimmingPool.Classes;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -31,8 +32,8 @@ namespace SwimmingPool.Manager
             CMBGender.DisplayMemberPath = "Title";
             CMBGender.SelectedIndex = 0;
 
-            CMBType.ItemsSource = Classes.DBContext.context.SubscriptionTypes.ToList();
-            CMBType.DisplayMemberPath = "TitleType";
+            CMBType.ItemsSource = Classes.DBContext.context.Pools.ToList();
+            CMBType.DisplayMemberPath = "TitlePool";
             CMBType.SelectedIndex = 0;
 
             CMBDuration.ItemsSource = Classes.DBContext.context.SubscriptionDuration.ToList();
@@ -70,13 +71,13 @@ namespace SwimmingPool.Manager
         }
         private void AddClient(object sender, RoutedEventArgs e)
         {
-            SwimmingPool.Client newClient = new SwimmingPool.Client();
+            Client newClient = new Client();
             newClient.FName = TBFName.Text;
             newClient.LName = TBLName.Text;
             newClient.Patronymic = TBPatronymic.Text;
             newClient.BirthDay = Convert.ToDateTime(TBBirthDay.Text);
             newClient.Phone = TBPhone.Text;
-            newClient.Gender = (CMBGender.SelectedItem as SwimmingPool.Gender);
+            newClient.Gender = (CMBGender.SelectedItem as Gender);
             newClient.Email = TBEmail.Text;
             newClient.RegistartionDate = DateTime.Now;
 
@@ -93,8 +94,8 @@ namespace SwimmingPool.Manager
             newSales.IDClient = Convert.ToInt32(TBClient.Text);
             newSales.IDEmployee = 1;
 
-            int selectedDuratId = (CMBDuration.SelectedItem as SubscriptionDuration)?.DurationID ?? -1;
-            int selectedTitleTypeId = (CMBType.SelectedItem as SubscriptionTypes)?.TypeID ?? -1;
+            int selectedDuratId = (CMBDuration.SelectedItem as SubscriptionDuration).DurationID -1;
+            int selectedTitleTypeId = (CMBType.SelectedItem as Pools).PoolsID -1;
             int? subscriptionId = null;
             using (var dbContext = new SwimmingPoolComplexEntities())
             {
@@ -109,6 +110,12 @@ namespace SwimmingPool.Manager
             DBContext.context.Sales.Add(newSales);
             DBContext.context.SaveChanges();
             MessageBox.Show("Абонемент продан", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+        private void BTNSHedule_Click(object sender, RoutedEventArgs e)
+        {
+            AddShedule addShedule = new AddShedule();
+            addShedule.Show();
+            Close();
         }
     }
 }

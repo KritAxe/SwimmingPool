@@ -34,7 +34,7 @@ namespace SwimmingPool.Administrator
 
         private void ClientGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            SwimmingPool.Client selectedItem = (SwimmingPool.Client)ClientGrid.SelectedItem;
+            Client selectedItem = (Client)ClientGrid.SelectedItem;
             if (selectedItem != null)
             {
                 
@@ -45,10 +45,9 @@ namespace SwimmingPool.Administrator
                 TBChangeEmail.Text = selectedItem.Email;
             }
         }
-
         private void SaveClient_Click(object sender, RoutedEventArgs e)
         {
-            SwimmingPool.Client selectedItem = (Client)ClientGrid.SelectedItem;
+            Client selectedItem = (Client)ClientGrid.SelectedItem;
             if (selectedItem != null)
             {
                 selectedItem.FName = TBChangeFName.Text;
@@ -61,11 +60,11 @@ namespace SwimmingPool.Administrator
             ClientGrid.ItemsSource = DBContext.context.Client.ToList();
         }
 
-        //private void BTNgoShedule_Click(object sender, RoutedEventArgs e)
-        //{
-        //    ChangeShedule changeShedule = new ChangeShedule();
-        //    changeShedule.Show();
-        //    Close();
-        //}
+        private void BTNgoShedule_Click(object sender, RoutedEventArgs e)
+        {
+            ChangeShedule changeShedule = new ChangeShedule();
+            changeShedule.Show();
+            Close();
+        }
     }
 }

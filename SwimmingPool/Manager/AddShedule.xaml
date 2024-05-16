@@ -1,0 +1,38 @@
+﻿<Window x:Class="SwimmingPool.Manager.AddShedule"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SwimmingPool.Manager"
+        mc:Ignorable="d"
+        Loaded="AddGridShedule"
+        Title="AddShedule" Height="450" Width="800">
+    <Grid Background="#FFA7A7A7">
+        <DataGrid x:Name="SheduleGrid" Margin="0,0,0,95" AutoGenerateColumns="False"
+          >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Тренер" Width="*" Binding="{Binding Employee.LName}"/>
+                <DataGridTextColumn Header="Клиент" Width="*" Binding="{Binding Sales.Client.LName}"/>
+                <DataGridTextColumn Header="Бассейн" Width="*" Binding="{Binding Sales.Subscription.Pools.TitlePool}"/>
+                <DataGridTextColumn Header="Начало" Width="*" Binding="{Binding StartTime}"/>
+                <DataGridTextColumn Header="Конец" Width="*" Binding="{Binding EndTime}"/>
+                <DataGridTextColumn Header="День недели" Width="*" Binding="{Binding DayOfWek}"/>
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+        <Button Content="Вернуться к клиентам" HorizontalAlignment="Left" Margin="623,376,0,0" 
+                VerticalAlignment="Top" Width="125" Background="#FF646464"
+                x:Name="BackClient" Click="BackClient_Click"/>
+        <ComboBox HorizontalAlignment="Left" Margin="0,348,0,0" VerticalAlignment="Top" 
+                  Width="120" x:Name="EnterTrainer"/>
+        <ComboBox HorizontalAlignment="Left" Margin="144,348,0,0" VerticalAlignment="Top" 
+                  Width="120" x:Name="EnterClient"/>
+        <Button Content="Добавить запись в расписание" HorizontalAlignment="Left" Margin="113,386,0,0" 
+                VerticalAlignment="Top" Width="182" Background="#FF646464"
+                x:Name="AddNew" Click="AddNew_Click"/>
+        <ComboBox HorizontalAlignment="Left" Margin="280,348,0,0" VerticalAlignment="Top" 
+                  Width="120" x:Name="CMBTitleDay"/>
+    </Grid>
+</Window>

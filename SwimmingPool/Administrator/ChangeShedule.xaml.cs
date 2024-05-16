@@ -21,12 +21,74 @@ namespace SwimmingPool.Administrator
     /// </summary>
     public partial class ChangeShedule : Window
     {
+
         public ChangeShedule()
         {
             InitializeComponent();
+            CMBEmployee.ItemsSource = Classes.DBContext.context.Employee.Where(i => i.IDPosition == 3).ToList();
+            CMBEmployee.DisplayMemberPath = "LName";
+            CMBEmployee.SelectedIndex = 0;
+
+            CMBClient.ItemsSource = Classes.DBContext.context.Sales.ToList();
+            CMBClient.DisplayMemberPath = "Client.LName";
+            CMBClient.SelectedIndex = 0;
+
         }
+
+        private void ChangeSheduleLoad(object sender, RoutedEventArgs e)
+        {
+            SheduleGrid.ItemsSource = Classes.DBContext.context.Shedule.ToList();
+        }
+        private void SheduleGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Shedule selectedItem = (Shedule)SheduleGrid.SelectedItem;
+            if (selectedItem != null)
+            {
+                CMBEmployee.SelectedIndex = selectedItem.Employee.EmployeeID -1;
+                CMBClient.SelectedIndex = selectedItem.Sales.SalesID -1;
+               
+            }
+        }
+
+
+        private void SaveChange_Click(object sender, RoutedEventArgs e)
+        {
+            Shedule selectedItem = (Shedule)SheduleGrid.SelectedItem;
+            if (selectedItem != null)
+            {
+                selectedItem.IDEmployee = (CMBEmployee.SelectedItem as Employee).EmployeeID;
+                selectedItem.IDSales = (CMBClient.SelectedItem as Sales).SalesID;
+                Classes.DBContext.context.SaveChanges();
+            }
+            SheduleGrid.ItemsSource = DBContext.context.Shedule.ToList();
+        }
+
+
+        private void BTNgoClient_Click(object sender, RoutedEventArgs e)
+        {
+            ChangeClient changeClient = new ChangeClient();
+            changeClient.Show();
+            Close();
+        }
+  
+
     }
+   
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //        private void Shedule_Load(object sender, RoutedEventArgs e)
 //        {
 //            List<ClassShedule> combinedDataList;

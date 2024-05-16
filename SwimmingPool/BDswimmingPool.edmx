@@ -241,6 +241,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Subscription_Pools">
+          <End Role="Pools" Type="Self.Pools" Multiplicity="1" />
+          <End Role="Subscription" Type="Self.Subscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pools">
+              <PropertyRef Name="PoolsID" />
+            </Principal>
+            <Dependent Role="Subscription">
+              <PropertyRef Name="IDType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Subscription_SubscriptionDuration">
           <End Role="SubscriptionDuration" Type="Self.SubscriptionDuration" Multiplicity="1" />
           <End Role="Subscription" Type="Self.Subscription" Multiplicity="*" />
@@ -250,18 +262,6 @@
             </Principal>
             <Dependent Role="Subscription">
               <PropertyRef Name="IDDuration" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Subscription_SubscriptionTypes">
-          <End Role="SubscriptionTypes" Type="Self.SubscriptionTypes" Multiplicity="1" />
-          <End Role="Subscription" Type="Self.Subscription" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SubscriptionTypes">
-              <PropertyRef Name="TypeID" />
-            </Principal>
-            <Dependent Role="Subscription">
-              <PropertyRef Name="IDType" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -349,12 +349,12 @@
             <End Role="Sales" EntitySet="Sales" />
             <End Role="Shedule" EntitySet="Shedule" />
           </AssociationSet>
-          <AssociationSet Name="FK_Subscription_SubscriptionDuration" Association="Self.FK_Subscription_SubscriptionDuration">
-            <End Role="SubscriptionDuration" EntitySet="SubscriptionDuration" />
+          <AssociationSet Name="FK_Subscription_Pools" Association="Self.FK_Subscription_Pools">
+            <End Role="Pools" EntitySet="Pools" />
             <End Role="Subscription" EntitySet="Subscription" />
           </AssociationSet>
-          <AssociationSet Name="FK_Subscription_SubscriptionTypes" Association="Self.FK_Subscription_SubscriptionTypes">
-            <End Role="SubscriptionTypes" EntitySet="SubscriptionTypes" />
+          <AssociationSet Name="FK_Subscription_SubscriptionDuration" Association="Self.FK_Subscription_SubscriptionDuration">
+            <End Role="SubscriptionDuration" EntitySet="SubscriptionDuration" />
             <End Role="Subscription" EntitySet="Subscription" />
           </AssociationSet>
         </EntityContainer>
@@ -437,6 +437,10 @@
             <End Role="Pools" EntitySet="Pools" />
             <End Role="Shedule" EntitySet="Shedule" />
           </AssociationSet>
+          <AssociationSet Name="FK_Subscription_Pools" Association="SwimmingPoolComplexModel.FK_Subscription_Pools">
+            <End Role="Pools" EntitySet="Pools" />
+            <End Role="Subscription" EntitySet="Subscription" />
+          </AssociationSet>
           <AssociationSet Name="FK_Sales_Subscription" Association="SwimmingPoolComplexModel.FK_Sales_Subscription">
             <End Role="Subscription" EntitySet="Subscription" />
             <End Role="Sales" EntitySet="Sales" />
@@ -447,10 +451,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_Subscription_SubscriptionDuration" Association="SwimmingPoolComplexModel.FK_Subscription_SubscriptionDuration">
             <End Role="SubscriptionDuration" EntitySet="SubscriptionDuration" />
-            <End Role="Subscription" EntitySet="Subscription" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Subscription_SubscriptionTypes" Association="SwimmingPoolComplexModel.FK_Subscription_SubscriptionTypes">
-            <End Role="SubscriptionTypes" EntitySet="SubscriptionTypes" />
             <End Role="Subscription" EntitySet="Subscription" />
           </AssociationSet>
           </EntityContainer>
@@ -528,6 +528,7 @@
           <Property Name="TitlePool" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TypePool" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Shedule" Relationship="SwimmingPoolComplexModel.FK_Shedule_Pools" FromRole="Pools" ToRole="Shedule" />
+          <NavigationProperty Name="Subscription" Relationship="SwimmingPoolComplexModel.FK_Subscription_Pools" FromRole="Pools" ToRole="Subscription" />
         </EntityType>
         <EntityType Name="Position">
           <Key>
@@ -575,9 +576,9 @@
           <Property Name="IDType" Type="Int32" Nullable="false" />
           <Property Name="IDDuration" Type="Int32" Nullable="false" />
           <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <NavigationProperty Name="Pools" Relationship="SwimmingPoolComplexModel.FK_Subscription_Pools" FromRole="Subscription" ToRole="Pools" />
           <NavigationProperty Name="Sales" Relationship="SwimmingPoolComplexModel.FK_Sales_Subscription" FromRole="Subscription" ToRole="Sales" />
           <NavigationProperty Name="SubscriptionDuration" Relationship="SwimmingPoolComplexModel.FK_Subscription_SubscriptionDuration" FromRole="Subscription" ToRole="SubscriptionDuration" />
-          <NavigationProperty Name="SubscriptionTypes" Relationship="SwimmingPoolComplexModel.FK_Subscription_SubscriptionTypes" FromRole="Subscription" ToRole="SubscriptionTypes" />
         </EntityType>
         <EntityType Name="SubscriptionDuration">
           <Key>
@@ -593,7 +594,6 @@
           </Key>
           <Property Name="TypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TitleType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Subscription" Relationship="SwimmingPoolComplexModel.FK_Subscription_SubscriptionTypes" FromRole="SubscriptionTypes" ToRole="Subscription" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -701,6 +701,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Subscription_Pools">
+          <End Type="SwimmingPoolComplexModel.Pools" Role="Pools" Multiplicity="1" />
+          <End Type="SwimmingPoolComplexModel.Subscription" Role="Subscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pools">
+              <PropertyRef Name="PoolsID" />
+            </Principal>
+            <Dependent Role="Subscription">
+              <PropertyRef Name="IDType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Sales_Subscription">
           <End Type="SwimmingPoolComplexModel.Subscription" Role="Subscription" Multiplicity="1" />
           <End Type="SwimmingPoolComplexModel.Sales" Role="Sales" Multiplicity="*" />
@@ -734,18 +746,6 @@
             </Principal>
             <Dependent Role="Subscription">
               <PropertyRef Name="IDDuration" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Subscription_SubscriptionTypes">
-          <End Type="SwimmingPoolComplexModel.SubscriptionTypes" Role="SubscriptionTypes" Multiplicity="1" />
-          <End Type="SwimmingPoolComplexModel.Subscription" Role="Subscription" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SubscriptionTypes">
-              <PropertyRef Name="TypeID" />
-            </Principal>
-            <Dependent Role="Subscription">
-              <PropertyRef Name="IDType" />
             </Dependent>
           </ReferentialConstraint>
         </Association>

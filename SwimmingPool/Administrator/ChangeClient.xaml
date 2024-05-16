@@ -31,9 +31,9 @@
             VerticalAlignment="Top" Width="120" x:Name="TBChangePhone"/>
         <TextBox HorizontalAlignment="Left" Margin="638,36,0,0" TextWrapping="Wrap" 
             VerticalAlignment="Top" Width="120" x:Name="TBChangeEmail"/>
-        <!--<Button Content="Перейти к расписанию" HorizontalAlignment="Left" Background="#FF646464"
+        <Button Content="Перейти к расписанию" HorizontalAlignment="Left" Background="#FF646464"
                 Margin="10,10,0,0" VerticalAlignment="Top" Width="138" x:Name="BTNgoShedule"
-                Click="BTNgoShedule_Click"/>-->
+                Click="BTNgoShedule_Click"/>
 
     </Grid>
 </Window>

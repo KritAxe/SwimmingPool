@@ -14,16 +14,7 @@ namespace SwimmingPool
     
     public partial class SubscriptionTypes
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SubscriptionTypes()
-        {
-            this.Subscription = new HashSet<Subscription>();
-        }
-    
         public int TypeID { get; set; }
         public string TitleType { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Subscription> Subscription { get; set; }
     }
 }

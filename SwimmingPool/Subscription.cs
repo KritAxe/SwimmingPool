@@ -25,9 +25,9 @@ namespace SwimmingPool
         public int IDDuration { get; set; }
         public decimal Price { get; set; }
     
+        public virtual Pools Pools { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sales> Sales { get; set; }
         public virtual SubscriptionDuration SubscriptionDuration { get; set; }
-        public virtual SubscriptionTypes SubscriptionTypes { get; set; }
     }
 }

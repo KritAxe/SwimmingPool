@@ -76,6 +76,9 @@
         <Button x:Name="BTNPay" Click="BTNPay_Click" 
             Content="Продать" HorizontalAlignment="Left" Margin="575,354,0,0" 
                 VerticalAlignment="Top" Height="20" Width="82" Background="#FF646464"/>
+        <Button x:Name="BTNAddShedule" Click="BTNSHedule_Click" 
+            Content="Перейти к расписанию" HorizontalAlignment="Left" Margin="638,20,0,0" 
+            VerticalAlignment="Top" Height="20" Width="136" Background="#FF646464"/>
         <!--<TextBlock HorizontalAlignment="Left" Margin="727,288,0,0" TextWrapping="Wrap" 
                    Text="TextBlock" VerticalAlignment="Top"
                    x:Name="TBPrice"/>-->

@@ -9,14 +9,14 @@
         <EntityTypeShape EntityType="SwimmingPoolComplexModel.Employee" Width="1.5" PointX="3" PointY="3.125" />
         <EntityTypeShape EntityType="SwimmingPoolComplexModel.EmployeeStatus" Width="1.5" PointX="0.75" PointY="7.75" />
         <EntityTypeShape EntityType="SwimmingPoolComplexModel.Gender" Width="1.5" PointX="0.75" PointY="4.375" />
-        <EntityTypeShape EntityType="SwimmingPoolComplexModel.Pools" Width="1.5" PointX="5.25" PointY="3.125" />
+        <EntityTypeShape EntityType="SwimmingPoolComplexModel.Pools" Width="1.5" PointX="0.75" PointY="16.75" />
         <EntityTypeShape EntityType="SwimmingPoolComplexModel.Position" Width="1.5" PointX="0.75" PointY="1.25" />
         <EntityTypeShape EntityType="SwimmingPoolComplexModel.Sales" Width="1.5" PointX="5.25" PointY="6.125" />
         <EntityTypeShape EntityType="SwimmingPoolComplexModel.Shedule" Width="1.5" PointX="7.5" PointY="4.625" />
         <EntityTypeShape EntityType="SwimmingPoolComplexModel.Subscription" Width="1.5" PointX="3" PointY="15.375" />
-        <EntityTypeShape EntityType="SwimmingPoolComplexModel.SubscriptionDuration" Width="1.5" PointX="0.75" PointY="16.875" />
-        <EntityTypeShape EntityType="SwimmingPoolComplexModel.SubscriptionTypes" Width="1.5" PointX="0.75" PointY="14.625" />
-        <EntityTypeShape EntityType="SwimmingPoolComplexModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SwimmingPoolComplexModel.SubscriptionDuration" Width="1.5" PointX="0.75" PointY="14.375" />
+        <EntityTypeShape EntityType="SwimmingPoolComplexModel.SubscriptionTypes" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SwimmingPoolComplexModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" />
         <AssociationConnector Association="SwimmingPoolComplexModel.FK_Client_Gender" />
         <AssociationConnector Association="SwimmingPoolComplexModel.FK_Sales_Client" />
         <AssociationConnector Association="SwimmingPoolComplexModel.FK_Employee_EmployeeStatus" />
@@ -25,10 +25,10 @@
         <AssociationConnector Association="SwimmingPoolComplexModel.FK_Sales_Employee" />
         <AssociationConnector Association="SwimmingPoolComplexModel.FK_Shedule_Employee" />
         <AssociationConnector Association="SwimmingPoolComplexModel.FK_Shedule_Pools" />
+        <AssociationConnector Association="SwimmingPoolComplexModel.FK_Subscription_Pools" />
         <AssociationConnector Association="SwimmingPoolComplexModel.FK_Sales_Subscription" />
         <AssociationConnector Association="SwimmingPoolComplexModel.FK_Shedule_Sales" />
         <AssociationConnector Association="SwimmingPoolComplexModel.FK_Subscription_SubscriptionDuration" />
-        <AssociationConnector Association="SwimmingPoolComplexModel.FK_Subscription_SubscriptionTypes" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
